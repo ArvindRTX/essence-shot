@@ -16,15 +16,15 @@ const services = [
     title: "Wedding Photography",
     description: "Capturing your special day with artistic elegance and emotional depth",
     features: ["Full day coverage", "Engagement session", "Online gallery", "Print package"],
-    price: "Starting at $2,500",
+    price: "Enquire Now",
     popular: true,
   },
   {
     icon: Users,
-    title: "Family Portraits",
-    description: "Beautiful family memories that will be treasured for generations",
+    title: "Couple Portraits",
+    description: "Beautiful couple memories that will be treasured for generations",
     features: ["Studio or location", "Multiple outfit changes", "Edited gallery", "Print release"],
-    price: "Starting at $450",
+    price: "Enquire Now",
     popular: false,
   },
   {
@@ -32,7 +32,7 @@ const services = [
     title: "Newborn Sessions",
     description: "Gentle and safe photography for your precious little one",
     features: ["Props included", "Parent shots", "Sibling photos", "Same week editing"],
-    price: "Starting at $650",
+    price: "Enquire Now",
     popular: false,
   },
   {
@@ -40,7 +40,7 @@ const services = [
     title: "Corporate Events",
     description: "Professional event documentation and corporate headshots",
     features: ["Event coverage", "Team photos", "Brand consistency", "Quick delivery"],
-    price: "Starting at $800",
+    price: "Enquire Now",
     popular: false,
   },
 ];
