@@ -51,7 +51,7 @@ const Hero = () => {
               size="lg"
               className="group bg-accent hover:bg-accent/90 text-accent-foreground font-medium px-8 py-4 h-auto elegant-shadow smooth-transition"
             >
-              View Portfolio
+              Book a Consultation
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 smooth-transition" />
             </Button>
 
