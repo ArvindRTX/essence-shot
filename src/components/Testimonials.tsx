@@ -5,7 +5,7 @@ const testimonials = [
   {
     id: 1,
     quote: "Signature Photography captured our wedding day with such artistry and emotion. Every photo tells our story perfectly, and we couldn't be happier with the results.",
-    name: "Sarah & Michael Johnson",
+    name: "Velladurai & Susila",
     event: "Wedding Photography",
     rating: 5,
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
@@ -13,7 +13,7 @@ const testimonials = [
   {
     id: 2,
     quote: "The team's professionalism and creative vision exceeded all our expectations. Our family portraits are now treasured heirlooms that we'll cherish forever.",
-    name: "Emily Rodriguez",
+    name: "Vijay Vaithiyanathan",
     event: "Family Portrait Session",
     rating: 5,
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
@@ -21,7 +21,7 @@ const testimonials = [
   {
     id: 3,
     quote: "From the initial consultation to the final delivery, everything was seamless. The attention to detail and artistic approach made our corporate event photography outstanding.",
-    name: "David Chen",
+    name: "Solomon Raja",
     event: "Corporate Event",
     rating: 5,
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"

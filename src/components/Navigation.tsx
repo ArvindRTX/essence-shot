@@ -72,7 +72,7 @@ const Navigation = () => {
               asChild
             >
               <a 
-                href="https://client.example.com" 
+                href="https://signature-photography-photo-selector.onrender.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
