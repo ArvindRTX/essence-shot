@@ -36,7 +36,7 @@ const Hero = () => {
           {/* Main headline */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight">
             Signature
-            <span className="block text-gradient">Photography</span>
+            <span className="block text-accent drop-shadow-lg">Photography</span>
           </h1>
 
           {/* Subheadline */}
