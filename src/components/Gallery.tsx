@@ -72,8 +72,15 @@ const Gallery = () => {
     ? galleryItems 
     : galleryItems.filter(item => item.category === activeCategory);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="py-24 bg-muted/30">
+    <section id="portfolio" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-16 animate-fade-in">
@@ -161,12 +168,26 @@ const Gallery = () => {
             Want to see more of our work?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Instagram className="w-4 h-4 mr-2" />
-              Follow on Instagram
+            <Button 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+              asChild
+            >
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                <Instagram className="w-4 h-4 mr-2" />
+                Follow on Instagram
+              </a>
             </Button>
-            <Button variant="outline" className="border-border hover:border-accent/50 hover:bg-accent/5">
-              View Full Portfolio
+            <Button 
+              variant="outline" 
+              className="border-border hover:border-accent/50 hover:bg-accent/5"
+              onClick={() => scrollToSection('services')}
+            >
+              View Services
             </Button>
           </div>
         </div>

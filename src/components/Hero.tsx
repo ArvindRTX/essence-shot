@@ -1,8 +1,18 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Camera, Play, ArrowRight } from "lucide-react";
 import HeroBackgroundImage from '../assets/images/DSC02445.jpg';
+import ContactForm from './ContactForm';
 
 const Hero = () => {
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with gradient overlay */}
@@ -49,6 +59,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
             <Button
               size="lg"
+              onClick={() => setIsContactFormOpen(true)}
               className="group bg-accent hover:bg-accent/90 text-accent-foreground font-medium px-8 py-4 h-auto elegant-shadow smooth-transition"
             >
               Book a Consultation
@@ -58,10 +69,11 @@ const Hero = () => {
             <Button
               variant="outline"
               size="lg"
+              onClick={() => scrollToSection('portfolio')}
               className="group border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-medium px-8 py-4 h-auto smooth-transition"
             >
               <Play className="w-5 h-5 mr-2 group-hover:scale-110 smooth-transition" />
-              Watch Reel
+              View Portfolio
             </Button>
           </div>
 
@@ -89,6 +101,9 @@ const Hero = () => {
           <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse" />
         </div>
       </div>
+
+      {/* Contact Form Dialog */}
+      <ContactForm open={isContactFormOpen} onOpenChange={setIsContactFormOpen} />
     </section>
   );
 };

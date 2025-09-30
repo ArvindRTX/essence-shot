@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -9,6 +10,7 @@ import {
   Sparkles,
   ArrowRight 
 } from "lucide-react";
+import ContactForm from './ContactForm';
 
 const services = [
   {
@@ -46,8 +48,23 @@ const services = [
 ];
 
 const Services = () => {
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+
+  const handleServiceClick = (serviceName: string) => {
+    setSelectedService(serviceName);
+    setIsContactFormOpen(true);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section id="services" className="py-24 bg-background relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-10 right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-20 w-60 h-60 bg-primary/5 rounded-full blur-3xl" />
@@ -76,6 +93,7 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={service.title} 
+              onClick={() => handleServiceClick(service.title)}
               className={`group relative overflow-hidden border-0 elegant-shadow hover:glow-effect smooth-transition cursor-pointer ${
                 service.popular ? 'ring-2 ring-accent/20' : ''
               }`}
@@ -127,12 +145,22 @@ const Services = () => {
           <p className="text-muted-foreground mb-6">
             Need something custom? We'd love to create a personalized package for you.
           </p>
-          <div className="inline-flex items-center gap-2 text-accent font-medium hover:gap-4 smooth-transition cursor-pointer">
+          <button 
+            onClick={() => handleServiceClick("Custom Package")}
+            className="inline-flex items-center gap-2 text-accent font-medium hover:gap-4 smooth-transition cursor-pointer"
+          >
             <span>Let's discuss your vision</span>
             <ArrowRight className="w-5 h-5" />
-          </div>
+          </button>
         </div>
       </div>
+
+      {/* Contact Form Dialog */}
+      <ContactForm 
+        open={isContactFormOpen} 
+        onOpenChange={setIsContactFormOpen}
+        defaultService={selectedService}
+      />
     </section>
   );
 };
