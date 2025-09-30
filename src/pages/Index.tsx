@@ -4,10 +4,8 @@ import Gallery from "../components/Gallery";
 import Services from "../components/Services";
 import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
-import { useMouseGradient } from "@/hooks/useMouseGradient";
 
 const Index = () => {
-  useMouseGradient();
   return (
     <div className="min-h-screen">
       <Navigation />
