@@ -98,26 +98,26 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent" />
                 <a 
-                  href="mailto:hello@signaturephoto.com" 
+                  href="mailto:aravinthramesh627@gmail.com" 
                   className="text-white/80 hover:text-accent smooth-transition"
                 >
-                  hello@signaturephoto.com
+                  aravinthramesh627@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent" />
                 <a 
-                  href="tel:+1234567890" 
+                  href="tel:+918438650107" 
                   className="text-white/80 hover:text-accent smooth-transition"
                 >
-                  (123) 456-7890
+                  8438650107
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-accent mt-1" />
                 <span className="text-white/80">
-                  123 Photography Lane<br />
-                  Creative District, NY 10001
+                  Signature Photography<br />
+                  Tenkasi
                 </span>
               </li>
             </ul>
@@ -127,7 +127,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/60 text-sm">
-            © 2024 Signature Photography. All rights reserved.
+            © 2025 Signature Photography. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="text-white/60 hover:text-accent text-sm smooth-transition">
