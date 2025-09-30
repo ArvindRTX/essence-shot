@@ -127,8 +127,23 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-foreground antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    background: linear-gradient(-45deg, hsl(0 0% 98%), hsl(45 40% 96%), hsl(43 30% 94%), hsl(0 0% 99%));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
 

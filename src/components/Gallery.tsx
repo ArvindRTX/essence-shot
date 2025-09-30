@@ -85,7 +85,16 @@ const Gallery = () => {
           
           {/* Category filters */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map(category => {})}
+            {categories.map(category => (
+              <Button
+                key={category}
+                variant={activeCategory === category ? "default" : "outline"}
+                onClick={() => setActiveCategory(category)}
+                className="smooth-transition"
+              >
+                {category}
+              </Button>
+            ))}
           </div>
         </div>
         
