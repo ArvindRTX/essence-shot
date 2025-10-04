@@ -68,7 +68,7 @@ const Gallery = () => {
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 glass-card-light border-accent/30 rounded-full px-4 py-2 mb-6 hover:glass-glow smooth-transition">
             <Eye className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-accent">Featured Work</span>
           </div>
@@ -100,15 +100,15 @@ const Gallery = () => {
         
         {/* Gallery grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-          {filteredItems.map((item, index) => <div key={item.id} className="group relative aspect-square overflow-hidden rounded-2xl cursor-pointer elegant-shadow hover:glow-effect smooth-transition" style={{
+          {filteredItems.map((item, index) => <div key={item.id} className="group relative aspect-square overflow-hidden rounded-2xl cursor-pointer elegant-shadow hover:glass-glow hover:scale-[1.02] smooth-transition" style={{
           animationDelay: `${index * 0.1}s`
         }} onMouseEnter={() => setHoveredItem(item.id)} onMouseLeave={() => setHoveredItem(null)}>
               <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 smooth-transition" />
               
               {/* Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent transition-opacity duration-500 ${hoveredItem === item.id ? 'opacity-100' : 'opacity-0'}`}>
+              <div className={`absolute inset-0 glass-dark transition-opacity duration-500 ${hoveredItem === item.id ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <Badge className="mb-3 bg-accent/20 text-accent border-accent/30">
+                  <Badge className="mb-3 glass-card border-accent/40 text-accent">
                     {item.category}
                   </Badge>
                   <h3 className="text-white font-serif text-xl font-bold mb-2">
@@ -122,7 +122,7 @@ const Gallery = () => {
               </div>
               
               {/* View icon */}
-              <div className={`absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 ${hoveredItem === item.id ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+              <div className={`absolute top-4 right-4 w-10 h-10 glass-card rounded-full flex items-center justify-center transition-all duration-300 ${hoveredItem === item.id ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
                 <Eye className="w-5 h-5 text-white" />
               </div>
             </div>)}

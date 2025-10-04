@@ -38,7 +38,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full px-4 py-2 mb-8 animate-scale-in">
+          <div className="inline-flex items-center gap-2 glass-card border-accent/40 rounded-full px-4 py-2 mb-8 animate-scale-in hover:glass-glow smooth-transition">
             <Camera className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-accent">Professional Photography</span>
           </div>
@@ -60,7 +60,7 @@ const Hero = () => {
             <Button
               size="lg"
               onClick={() => setIsContactFormOpen(true)}
-              className="group bg-accent hover:bg-accent/90 text-accent-foreground font-medium px-8 py-4 h-auto elegant-shadow smooth-transition"
+              className="group bg-accent hover:bg-accent/90 text-accent-foreground font-medium px-8 py-4 h-auto glass-glow hover:scale-105 smooth-transition"
             >
               Book a Consultation
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 smooth-transition" />
@@ -70,7 +70,7 @@ const Hero = () => {
               variant="outline"
               size="lg"
               onClick={() => scrollToSection('portfolio')}
-              className="group border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-medium px-8 py-4 h-auto smooth-transition"
+              className="group glass-card border-white/40 text-white hover:glass-glow font-medium px-8 py-4 h-auto hover:scale-105 smooth-transition"
             >
               <Play className="w-5 h-5 mr-2 group-hover:scale-110 smooth-transition" />
               View Portfolio

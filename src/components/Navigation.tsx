@@ -22,9 +22,9 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-primary/95 backdrop-blur-md shadow-lg' 
+        ? 'glass-dark shadow-lg' 
         : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
@@ -68,7 +68,7 @@ const Navigation = () => {
           <div className="flex-shrink-0">
             <Button
               variant="outline"
-              className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:border-accent"
+              className="glass-card border-white/40 text-white hover:glass-glow hover:border-accent/60 hover:scale-105 smooth-transition"
               asChild
             >
               <a 
