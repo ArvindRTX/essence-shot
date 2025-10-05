@@ -9,8 +9,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-white">
-      <div className="container mx-auto px-4 py-16">
+    <footer className="relative bg-primary text-white overflow-hidden">
+      {/* Floating glass particles */}
+      <div className="absolute top-10 right-20 w-40 h-40 glass-dark rounded-full animate-float opacity-30" />
+      <div className="absolute bottom-20 left-10 w-32 h-32 glass-dark rounded-full animate-glow opacity-20" />
+      
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
@@ -29,7 +33,7 @@ const Footer = () => {
                 href="https://instagram.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent hover:text-primary smooth-transition"
+                className="w-10 h-10 glass-dark rounded-full flex items-center justify-center hover:glass-glow hover:scale-110 hover:text-accent smooth-transition"
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -37,7 +41,7 @@ const Footer = () => {
                 href="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent hover:text-primary smooth-transition"
+                className="w-10 h-10 glass-dark rounded-full flex items-center justify-center hover:glass-glow hover:scale-110 hover:text-accent smooth-transition"
               >
                 <Facebook className="w-5 h-5" />
               </a>
@@ -45,7 +49,7 @@ const Footer = () => {
                 href="https://twitter.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent hover:text-primary smooth-transition"
+                className="w-10 h-10 glass-dark rounded-full flex items-center justify-center hover:glass-glow hover:scale-110 hover:text-accent smooth-transition"
               >
                 <Twitter className="w-5 h-5" />
               </a>

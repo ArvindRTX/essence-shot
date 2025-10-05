@@ -51,11 +51,15 @@ const FeaturedWork = () => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
 
   return (
-    <section id="portfolio" className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="portfolio" className="py-24 bg-background relative overflow-hidden">
+      {/* Floating glass particles */}
+      <div className="absolute top-32 right-10 w-40 h-40 glass-card rounded-full animate-float opacity-20" />
+      <div className="absolute bottom-32 left-20 w-32 h-32 glass-card rounded-full animate-glow opacity-30" style={{ animationDelay: '3s' }} />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 glass-card-light rounded-full px-4 py-2 mb-6 hover:glass-glow smooth-transition">
             <Eye className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-accent">Our Best Work</span>
           </div>
@@ -76,7 +80,7 @@ const FeaturedWork = () => {
           {featuredImages.map((item, index) => (
             <div
               key={item.id}
-              className="group relative aspect-[4/5] overflow-hidden rounded-2xl cursor-pointer elegant-shadow hover:glow-effect smooth-transition"
+              className="glass-card group relative aspect-[4/5] overflow-hidden rounded-2xl cursor-pointer elegant-shadow hover:glow-effect smooth-transition hover:scale-105"
               style={{ animationDelay: `${index * 0.1}s` }}
               onMouseEnter={() => setHoveredItem(item.id)}
               onMouseLeave={() => setHoveredItem(null)}
@@ -106,7 +110,7 @@ const FeaturedWork = () => {
               </div>
               
               {/* View Icon */}
-              <div className={`absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 ${
+              <div className={`absolute top-4 right-4 w-10 h-10 glass-card rounded-full flex items-center justify-center transition-all duration-300 ${
                 hoveredItem === item.id ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
               }`}>
                 <Eye className="w-5 h-5 text-white" />
@@ -120,7 +124,7 @@ const FeaturedWork = () => {
           <p className="text-muted-foreground mb-6">
             Ready to create something beautiful together?
           </p>
-          <button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-full font-medium smooth-transition">
+          <button className="glass-card border-accent/40 text-foreground hover:glass-glow hover:scale-105 px-8 py-3 rounded-full font-medium smooth-transition">
             View Full Portfolio
           </button>
         </div>

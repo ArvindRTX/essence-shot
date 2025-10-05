@@ -73,7 +73,7 @@ const ContactForm = ({ open, onOpenChange, defaultService = "" }: ContactFormPro
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto glass-card-light border-accent/20">
         <DialogHeader>
           <DialogTitle className="text-2xl font-serif text-foreground">Get in Touch</DialogTitle>
           <DialogDescription className="text-muted-foreground">
@@ -90,7 +90,7 @@ const ContactForm = ({ open, onOpenChange, defaultService = "" }: ContactFormPro
                 <FormItem>
                   <FormLabel>Full Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} />
+                    <Input placeholder="John Doe" className="glass-card border-accent/20 focus:glass-glow" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -106,7 +106,7 @@ const ContactForm = ({ open, onOpenChange, defaultService = "" }: ContactFormPro
                   <FormControl>
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                      <Input placeholder="8438650107" className="pl-10" {...field} />
+                      <Input placeholder="8438650107" className="pl-10 glass-card border-accent/20 focus:glass-glow" {...field} />
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -123,7 +123,7 @@ const ContactForm = ({ open, onOpenChange, defaultService = "" }: ContactFormPro
                   <FormControl>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                      <Input type="email" placeholder="john@example.com" className="pl-10" {...field} />
+                      <Input type="email" placeholder="john@example.com" className="pl-10 glass-card border-accent/20 focus:glass-glow" {...field} />
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -138,7 +138,7 @@ const ContactForm = ({ open, onOpenChange, defaultService = "" }: ContactFormPro
                 <FormItem>
                   <FormLabel>Service Interested In</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g., Wedding Photography, Portraits" {...field} />
+                    <Input placeholder="e.g., Wedding Photography, Portraits" className="glass-card border-accent/20 focus:glass-glow" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -154,7 +154,7 @@ const ContactForm = ({ open, onOpenChange, defaultService = "" }: ContactFormPro
                   <FormControl>
                     <Textarea 
                       placeholder="Tell us about your event, preferred dates, and any specific requirements..." 
-                      className="min-h-[120px] resize-none"
+                      className="min-h-[120px] resize-none glass-card border-accent/20 focus:glass-glow"
                       {...field} 
                     />
                   </FormControl>
@@ -167,7 +167,7 @@ const ContactForm = ({ open, onOpenChange, defaultService = "" }: ContactFormPro
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground"
+                className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground glass-glow hover:scale-105 smooth-transition"
               >
                 {isSubmitting ? (
                   "Sending..."
@@ -183,6 +183,7 @@ const ContactForm = ({ open, onOpenChange, defaultService = "" }: ContactFormPro
                 variant="outline"
                 onClick={() => onOpenChange(false)}
                 disabled={isSubmitting}
+                className="glass-card border-accent/40 hover:glass-glow hover:scale-105 smooth-transition"
               >
                 Cancel
               </Button>

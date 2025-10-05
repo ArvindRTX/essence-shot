@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { useState } from "react";
 import { Star, Quote } from "lucide-react";
 
 const testimonials = [
@@ -29,12 +29,40 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, id: number) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    
+    card.style.setProperty('--mouse-x', `${x}%`);
+    card.style.setProperty('--mouse-y', `${y}%`);
+    
+    const rotateX = ((y - 50) / 50) * -5;
+    const rotateY = ((x - 50) / 50) * 5;
+    card.style.setProperty('--rotate-x', `${rotateX}deg`);
+    card.style.setProperty('--rotate-y', `${rotateY}deg`);
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    card.style.setProperty('--rotate-x', '0deg');
+    card.style.setProperty('--rotate-y', '0deg');
+  };
+
   return (
-    <section className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-muted/30 relative overflow-hidden">
+      {/* Floating glass particles */}
+      <div className="absolute top-20 left-10 w-32 h-32 glass-card rounded-full animate-float opacity-20" />
+      <div className="absolute bottom-40 right-20 w-24 h-24 glass-card rounded-full animate-float opacity-30" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/2 left-1/4 w-16 h-16 glass-card rounded-full animate-glow opacity-20" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 glass-card-light rounded-full px-4 py-2 mb-6 hover:glass-glow smooth-transition">
             <Quote className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-accent">Client Stories</span>
           </div>
@@ -53,15 +81,17 @@ const Testimonials = () => {
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card 
+            <div
               key={testimonial.id}
-              className="group relative overflow-hidden border-0 elegant-shadow hover:glow-effect smooth-transition"
+              className="glass-card glass-interactive tilt-card group relative overflow-hidden border-0 rounded-xl p-8 elegant-shadow hover:glow-effect smooth-transition"
               style={{ animationDelay: `${index * 0.2}s` }}
+              onMouseMove={(e) => handleMouseMove(e, testimonial.id)}
+              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => setHoveredCard(testimonial.id)}
             >
-              <CardContent className="p-8">
-                {/* Quote Icon */}
-                <div className="mb-6">
-                  <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+              {/* Quote Icon */}
+              <div className="mb-6">
+                <div className="w-12 h-12 glass-card rounded-full flex items-center justify-center mb-4 group-hover:scale-110 smooth-transition">
                     <Quote className="w-6 h-6 text-accent" />
                   </div>
                   
@@ -80,13 +110,16 @@ const Testimonials = () => {
 
                 {/* Client Info */}
                 <div className="flex items-center gap-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
+                  <div className="relative">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover ring-2 ring-accent/30 group-hover:ring-accent/60 smooth-transition"
+                    />
+                    <div className="absolute inset-0 rounded-full bg-accent/20 opacity-0 group-hover:opacity-100 smooth-transition" />
+                  </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">
+                    <h4 className="font-semibold text-foreground group-hover:text-accent smooth-transition">
                       {testimonial.name}
                     </h4>
                     <p className="text-sm text-muted-foreground">
@@ -94,8 +127,7 @@ const Testimonials = () => {
                     </p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+            </div>
           ))}
         </div>
 
@@ -104,7 +136,7 @@ const Testimonials = () => {
           <p className="text-muted-foreground mb-6">
             Ready to create your own story with us?
           </p>
-          <button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-full font-medium smooth-transition">
+          <button className="glass-card border-accent/40 text-foreground hover:glass-glow hover:scale-105 px-8 py-3 rounded-full font-medium smooth-transition">
             Start Your Journey
           </button>
         </div>
