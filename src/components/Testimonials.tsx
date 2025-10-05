@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Star, Quote } from "lucide-react";
 
 const testimonials = [
@@ -92,41 +92,41 @@ const Testimonials = () => {
               {/* Quote Icon */}
               <div className="mb-6">
                 <div className="w-12 h-12 glass-card rounded-full flex items-center justify-center mb-4 group-hover:scale-110 smooth-transition">
-                    <Quote className="w-6 h-6 text-accent" />
-                  </div>
-                  
-                  {/* Star Rating */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-accent text-accent" />
-                    ))}
-                  </div>
+                  <Quote className="w-6 h-6 text-accent" />
                 </div>
-
-                {/* Quote */}
-                <blockquote className="text-muted-foreground mb-6 leading-relaxed italic">
-                  "{testimonial.quote}"
-                </blockquote>
-
-                {/* Client Info */}
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover ring-2 ring-accent/30 group-hover:ring-accent/60 smooth-transition"
-                    />
-                    <div className="absolute inset-0 rounded-full bg-accent/20 opacity-0 group-hover:opacity-100 smooth-transition" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground group-hover:text-accent smooth-transition">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.event}
-                    </p>
-                  </div>
+                
+                {/* Star Rating */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                  ))}
                 </div>
+              </div>
+
+              {/* Quote */}
+              <blockquote className="text-muted-foreground mb-6 leading-relaxed italic">
+                "{testimonial.quote}"
+              </blockquote>
+
+              {/* Client Info */}
+              <div className="flex items-center gap-4">
+                <div className="relative">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover ring-2 ring-accent/30 group-hover:ring-accent/60 smooth-transition"
+                  />
+                  <div className="absolute inset-0 rounded-full bg-accent/20 opacity-0 group-hover:opacity-100 smooth-transition" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground group-hover:text-accent smooth-transition">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    {testimonial.event}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
